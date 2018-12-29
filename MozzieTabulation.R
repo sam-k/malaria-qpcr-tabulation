@@ -1,8 +1,7 @@
 library(ggplot2)
 library(readr)
 
-setwd(wd <- "~/Projects/Malaria collab/Exported results/")   # Working directory name
-filepath <- paste(wd, "Mozzie mosquito all plates readonly.csv", sep="")    # CSV file path
+filepath <- "Mozzie mosquito all plates readonly.csv"    # CSV file path
 dat <- read.csv(filepath, header=TRUE, stringsAsFactors=FALSE)   # Raw data # read_csv?
 dat <- dat[-which(dat$Sample.Name==""), ]    # Remove rows where sample name is blank
 dat[dat=="Undetermined"] <- NA
