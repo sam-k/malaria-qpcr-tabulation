@@ -1,0 +1,18 @@
+Sub ProcessSampleName()
+    Dim startRow, endRow As Integer
+    startRow = 2
+    endRow = 1261
+    
+    Dim rng As Range
+    Set rng = Range("A" & startRow & ":A" & endRow)
+    
+    For i = 1 To rng.Count
+        Dim sampleName As String
+        sampleName = rng.Cells(i, 1)
+        Range("B" & startRow + i - 1).Value = Left(sampleName, 1)
+        Range("C" & startRow + i - 1).Value = Mid(sampleName, 2, 2)
+        Range("D" & startRow + i - 1).Value = Mid(sampleName, 5, 1)
+        Range("E" & startRow + i - 1).Value = Left(sampleName, 3) & Right(sampleName, 5)
+    Next i
+    
+End Sub
